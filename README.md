@@ -4,7 +4,7 @@ Lade das Projekt von GitHub/GitLab herunter oder erstelle das Projektverzeichnis
 
 ```
 git clone <URL_des_Repositories>   # Falls du es von GitHub/GitLab geklont hast
-cd mini-projekt                    # Wechsel ins Projektverzeichnis
+cd Mini-Projekt-M169               # Wechsel ins Projektverzeichnis
 ```
 ## 2. Docker-Image erstellen
 Erstelle das Docker-Image mit dem folgenden Befehl:
