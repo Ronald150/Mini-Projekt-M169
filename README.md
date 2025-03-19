@@ -1,5 +1,5 @@
 # Mini-Projekt-M169
-## 1. Ins verzeichnis mit den Dateien vechseln
+## 1. Ins verzeichnis mit den Dateien wechseln
 ## 2. Images Build
 Um das Image zu Bauen disen Befehl verwenden
 ```
