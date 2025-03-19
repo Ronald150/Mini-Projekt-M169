@@ -12,4 +12,3 @@ EXPOSE 8080
 
 # Apache starten
 CMD ["httpd", "-D", "FOREGROUND"]
-
