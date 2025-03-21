@@ -1,20 +1,93 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini-Projekt mit Apache von Ronald</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Ronald's Mini Projekt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Willkommen zu meinem Mini-Projekt mit Apache</h1>
-        <p>Diese Seite läuft in einem Docker-Container mit Apache!</p>
-    </div>
-    <footer>
-        <p>© 2025 Mein Mini-Projekt</p>
+<body class="bg-gray-900 text-gray-100"> <!-- Dark background and light text -->
+    
+    <!-- Navbar -->
+    <nav class="bg-gray-800 shadow-md p-4 sticky top-0 z-10"> <!-- Darker navbar -->
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">Ronald's Mini Projekt</h1>
+            <ul class="flex space-x-4">
+                <li><a href="#about" class="hover:text-blue-400">About</a></li> <!-- Brighter hover color -->
+                <li><a href="#services" class="hover:text-blue-400">Services</a></li>
+                <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <header class="bg-gray-700 text-white text-center py-20 fade-in"> <!-- Darker hero section -->
+        <h2 class="text-4xl font-bold">Welcome to Ronald's Mini Projekt</h2>
+        <p class="text-lg mt-2">This website is partly AI-generated.</p>
+    </header>
+    
+    <!-- About Section -->
+    <section id="about" class="container mx-auto my-16 p-6 fade-in">
+        <h3 class="text-3xl font-semibold text-center">About This Project</h3>
+        <p class="text-center mt-4 text-gray-300">This mini project by Ronald demonstrates high-quality, responsive, and beautiful web design.</p> <!-- Lighter text -->
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="container mx-auto my-16 p-6 fade-in">
+        <h3 class="text-3xl font-semibold text-center">Project Features</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+            <div class="bg-gray-800 p-6 shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg"> <!-- Darker cards -->
+                <h4 class="text-xl font-semibold">Web Design</h4>
+                <p class="text-gray-300 mt-2">Modern and responsive UI/UX design.</p> <!-- Lighter text -->
+            </div>
+            <div class="bg-gray-800 p-6 shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg">
+                <h4 class="text-xl font-semibold">Development</h4>
+                <p class="text-gray-300 mt-2">High-performance websites built with the latest technologies.</p>
+            </div>
+            <div class="bg-gray-800 p-6 shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg">
+                <h4 class="text-xl font-semibold">AI Computing</h4>
+                <p class="text-gray-300 mt-2">This Website demonstrates what Modern AI can create with ease.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="container mx-auto my-16 p-6 fade-in">
+        <h3 class="text-3xl font-semibold text-center">Contact Ronald</h3>
+        <p class="text-center text-gray-300 mt-2">Don't actually contact me XD.</p> <!-- Lighter text -->
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4"> <!-- Darker footer -->
+        <p>&copy; 2025 Ronald's Mini Projekt. All rights reserved.</p>
     </footer>
-
-    <script src="script.js"></script>
+    
+    <script>
+        // Fade-in animation on scroll
+        document.addEventListener("DOMContentLoaded", () => {
+            const fadeElements = document.querySelectorAll(".fade-in");
+            
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
