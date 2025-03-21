@@ -10,7 +10,7 @@ cd Mini-Projekt-M169               # Wechsel ins Projektverzeichnis
 Erstelle das Docker-Image mit dem folgenden Befehl:
 
 ```
-docker build -t mini-projekt-M169-apache .
+docker build -t mini-projekt-m169-apache .
 ```
 ## 3. Container starten
 - Starte den Docker-Container mit dem erstellten Image:
