@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ronald's Mini Projekt</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Fade-in Animation */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -15,78 +16,164 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Fade-in von links */
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Fade-in von rechts */
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Zoom-in Animation */
+        .zoom-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .zoom-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Seiten-Lade Fade-in */
+        .page-load {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .page-load.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Sicherstellen, dass der Körper scrollbar ist */
+        html, body {
+            overflow-x: hidden; /* Verhindert horizontales Scrollen */
+            overflow-y: auto; /* Ermöglicht vertikales Scrollen */
+            height: 100%; /* Sicherstellen, dass die volle Höhe erreicht wird */
+        }
+        body {
+            min-height: 100vh; /* Der Körper nimmt mindestens die Höhe des Viewports ein */
+        }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100"> <!-- Dark background and light text -->
+<body class="bg-gray-900 text-gray-100">
     
     <!-- Navbar -->
-    <nav class="bg-gray-800 shadow-md p-4 sticky top-0 z-10"> <!-- Darker navbar -->
+    <nav class="bg-gray-800 shadow-md p-4 sticky top-0 z-10">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-xl font-bold">Ronald's Mini Projekt</h1>
-            <ul class="flex space-x-4">
-                <li><a href="#about" class="hover:text-blue-400">About</a></li> <!-- Brighter hover color -->
-                <li><a href="#services" class="hover:text-blue-400">Services</a></li>
-                <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
-            </ul>
         </div>
     </nav>
     
     <!-- Hero Section -->
-    <header class="bg-gray-700 text-white text-center py-20 fade-in"> <!-- Darker hero section -->
-        <h2 class="text-4xl font-bold">Welcome to Ronald's Mini Projekt</h2>
-        <p class="text-lg mt-2">This website is partly AI-generated.</p>
+    <header class="bg-gray-700 text-white text-center py-20 fade-in page-load">
+        <h2 class="text-4xl font-bold">Willkommen zu Ronald's Mini Projekt</h2>
+        <p class="text-lg mt-2">Diese Webseite demonstriert ein Dockerisiertes Webserver-Projekt mit Apache oder Nginx.</p>
     </header>
     
-    <!-- About Section -->
-    <section id="about" class="container mx-auto my-16 p-6 fade-in">
-        <h3 class="text-3xl font-semibold text-center">About This Project</h3>
-        <p class="text-center mt-4 text-gray-300">This mini project by Ronald demonstrates high-quality, responsive, and beautiful web design.</p> <!-- Lighter text -->
+    <!-- Über das Projekt -->
+    <section id="about" class="container mx-auto my-16 p-6 fade-in-left page-load">
+        <h3 class="text-3xl font-semibold text-center">Über dieses Projekt</h3>
+        <p class="text-center mt-4 text-gray-300">Dieses Mini-Projekt zeigt einen einfachen Webserver, der in einem Docker-Container mit Apache oder Nginx läuft. Das Ziel ist es, zu demonstrieren, wie Docker verwendet werden kann, um eine Webseite auf Port 8080 bereitzustellen.</p>
     </section>
     
-    <!-- Services Section -->
-    <section id="services" class="container mx-auto my-16 p-6 fade-in">
-        <h3 class="text-3xl font-semibold text-center">Project Features</h3>
+    <!-- Projektmerkmale -->
+    <section id="services" class="container mx-auto my-16 p-6 fade-in-right page-load">
+        <h3 class="text-3xl font-semibold text-center">Projektmerkmale</h3>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-            <div class="bg-gray-800 p-6 shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg"> <!-- Darker cards -->
-                <h4 class="text-xl font-semibold">Web Design</h4>
-                <p class="text-gray-300 mt-2">Modern and responsive UI/UX design.</p> <!-- Lighter text -->
+            <div class="bg-gray-800 p-6 shadow-md rounded-lg zoom-in">
+                <h4 class="text-xl font-semibold">Webserver</h4>
+                <p class="text-gray-300 mt-2">Die Webseite wird innerhalb eines Docker-Containers gehostet, entweder mit Apache oder Nginx als Webserver.</p>
             </div>
-            <div class="bg-gray-800 p-6 shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg">
-                <h4 class="text-xl font-semibold">Development</h4>
-                <p class="text-gray-300 mt-2">High-performance websites built with the latest technologies.</p>
+            <div class="bg-gray-800 p-6 shadow-md rounded-lg zoom-in">
+                <h4 class="text-xl font-semibold">Dockerisiert</h4>
+                <p class="text-gray-300 mt-2">Der Webserver läuft in einem Docker-Container, was eine einfache und tragbare Bereitstellung über verschiedene Umgebungen hinweg ermöglicht.</p>
             </div>
-            <div class="bg-gray-800 p-6 shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg">
-                <h4 class="text-xl font-semibold">AI Computing</h4>
-                <p class="text-gray-300 mt-2">This Website demonstrates what Modern AI can create with ease.</p>
+            <div class="bg-gray-800 p-6 shadow-md rounded-lg zoom-in">
+                <h4 class="text-xl font-semibold">Port 8080</h4>
+                <p class="text-gray-300 mt-2">Die Webseite ist über den Browser auf Port 8080 zugänglich, was die Ansicht und das Testen einfach macht.</p>
             </div>
         </div>
     </section>
     
-    <!-- Contact Section -->
-    <section id="contact" class="container mx-auto my-16 p-6 fade-in">
-        <h3 class="text-3xl font-semibold text-center">Contact Ronald</h3>
-        <p class="text-center text-gray-300 mt-2">Don't actually contact me XD.</p> <!-- Lighter text -->
+    <!-- Projektbeschreibung -->
+    <section id="project-description" class="container mx-auto my-16 p-6 fade-in page-load">
+        <h3 class="text-3xl font-semibold text-center">Projektbeschreibung</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+            <div class="bg-gray-800 p-6 shadow-lg rounded-lg fade-in-left">
+                <h5 class="text-xl font-semibold text-blue-400">Docker Setup</h5>
+                <p class="mt-4 text-gray-300">
+                    Das Projekt ist mit einer benutzerdefinierten **Dockerfile** dockerisiert. Der Webserver (Apache oder Nginx) läuft in einem Container, und die Webseiten-Dateien (HTML, CSS, etc.) werden vom lokalen System in den Container gemountet. Dies ermöglicht eine einfache Verwaltung und Modifikation der Dateien.
+                </p>
+            </div>
+            <div class="bg-gray-800 p-6 shadow-lg rounded-lg fade-in-right">
+                <h5 class="text-xl font-semibold text-blue-400">Wie man es ausführt</h5>
+                <p class="mt-4 text-gray-300">
+                    Um das Projekt auszuführen, muss man einfach den Docker-Container bauen und starten. Die Webseite ist über den Browser unter **http://localhost:8080** zugänglich. Stellen Sie sicher, dass Docker installiert ist und der Container läuft.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Section (Persönliches Feedback zum Projekt) -->
+    <section id="feedback" class="container mx-auto my-16 p-6 fade-in-left page-load">
+        <h3 class="text-3xl font-semibold text-center">Persönliches Feedback zum Projekt</h3>
+        <p class="text-center mt-4 text-gray-300">Dieses Mini-Projekt war eine interessante und lehrreiche Erfahrung. Es war eine großartige Gelegenheit, Docker in einer praktischen Umgebung anzuwenden und zu lernen, wie man einen Webserver containerisiert und eine statische Webseite bereitstellt. Ich habe mich für Apache als Webserver entschieden, da er weit verbreitet und einfach zu konfigurieren ist. Docker ermöglichte es mir, die Umgebung zu isolieren und sicherzustellen, dass die Webseite problemlos auf jedem System mit Docker installiert werden kann.</p>
+        <p class="text-center mt-4 text-gray-300">Während dieses Projekts habe ich mich auch mehr mit dem Schreiben von Dockerfiles und dem Verwalten von Webservern innerhalb von Containern vertraut gemacht. Das Endergebnis ist eine voll funktionsfähige Webseite, die unter Port 8080 zugänglich ist und eine einfache und saubere Benutzeroberfläche bietet, die die Leistung und Flexibilität von Docker für die Webentwicklung demonstriert.</p>
+    </section>
+    
+    <!-- Kontakt Section -->
+    <section id="contact" class="container mx-auto my-16 p-6 fade-in page-load">
+        <h3 class="text-3xl font-semibold text-center">Kontaktiere Ronald</h3>
+        <p class="text-center text-gray-300 mt-2">Kontaktiere mich bitte nicht XD.</p>
     </section>
     
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-4"> <!-- Darker footer -->
-        <p>&copy; 2025 Ronald's Mini Projekt. All rights reserved.</p>
+    <footer class="bg-gray-800 text-white text-center py-4">
+        <p>&copy; 2025 Ronald's Mini Projekt. Alle Rechte vorbehalten.</p>
     </footer>
     
     <script>
-        // Fade-in animation on scroll
+        // Scroll-triggered Animationen
         document.addEventListener("DOMContentLoaded", () => {
-            const fadeElements = document.querySelectorAll(".fade-in");
+            const fadeElements = document.querySelectorAll(".fade-in, .fade-in-left, .fade-in-right, .zoom-in, .page-load");
             
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("visible");
+                    } else {
+                        entry.target.classList.remove("visible");
                     }
                 });
             }, { threshold: 0.3 });
             
-            fadeElements.forEach(el => observer.observe(el));
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Initiale Seiten-Lade-Animation
+            const pageElements = document.querySelectorAll('.page-load');
+            pageElements.forEach(el => {
+                setTimeout(() => el.classList.add('visible'), 500); // Leichte Verzögerung bei der Seiten-Lade-Animation
+            });
         });
     </script>
 </body>
