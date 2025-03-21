@@ -18,7 +18,7 @@ docker build -t mini-projekt-m169-apache .
 docker run -d -p 8080:8080 \
   -v ./html:/usr/local/apache2/htdocs \
   -v ./logs:/usr/local/apache2/logs \
-  --name M169 mini-projekt-M169-apache
+  --name M169 mini-projekt-m169-apache
 ```
 ## 4. Webseite im Browser aufrufen
 - Öffne deinen Webbrowser und gehe zu http://localhost:8080, um die Webseite zu sehen, die im Docker-Container läuft.
